@@ -511,6 +511,8 @@ s3_client_open(const char *user, const char *password, bool use_minio, bool use_
 			awsRegion = Aws::Environment::GetEnv("AWS_REGION").c_str();
 		}
         elog(DEBUG1, "parquet_s3_fdw: AWSREGION %s", awsRegion);
+        elog(DEBUG1, "parquet_s3_fdw: AWSACCESSKEY %s", cred.GetAWSAccessKeyId().c_str());
+        elog(DEBUG1, "parquet_s3_fdw: AWSSECRETKEY %s", cred.GetAWSSecretKey().c_str());
 	}else
 	{
 		cred = Aws::Auth::AWSCredentials(access_key_id, secret_access_key);
