@@ -2002,6 +2002,7 @@ parquetGetForeignPaths(PlannerInfo *root,
     foreign_path = (Path *) create_foreignscan_path(root, baserel,
                                                     NULL,	/* default pathtarget */
                                                     baserel->rows,
+                                                    0,     /* disabled_nodes */
                                                     startup_cost,
                                                     total_cost,
                                                     NULL,   /* no pathkeys */
@@ -2028,6 +2029,7 @@ parquetGetForeignPaths(PlannerInfo *root,
         path = (Path *) create_foreignscan_path(root, baserel,
                                                 NULL,	/* default pathtarget */
                                                 baserel->rows,
+                                                0,     /* disabled_nodes */
                                                 startup_cost,
                                                 total_cost,
                                                 pathkeys,
@@ -2067,6 +2069,7 @@ parquetGetForeignPaths(PlannerInfo *root,
                  create_foreignscan_path(root, baserel,
                                          NULL,	/* default pathtarget */
                                          baserel->rows,
+                                         0,     /* disabled_nodes */
                                          startup_cost,
                                          total_cost,
                                          use_pathkeys ? pathkeys : NULL,
@@ -2102,6 +2105,7 @@ parquetGetForeignPaths(PlannerInfo *root,
                      create_foreignscan_path(root, baserel,
                                              NULL,	/* default pathtarget */
                                              baserel->rows,
+                                             0,     /* disabled_nodes */
                                              startup_cost,
                                              total_cost,
                                              pathkeys,
